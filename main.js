@@ -25,7 +25,7 @@ function animate() {
 animate(); // On lance la boucle d'animation
 
 // Création d'un petit cube de test
-const geometry = new THREE.BoxGeometry(1, 1, 1);
+//const geometry = new THREE.BoxGeometry(1, 1, 1);
 //const material = new THREE.MeshStandardMaterial({ color: 0x00ff00 }); // Un cube vert
 //const cube = new THREE.Mesh(geometry, material);
 //scene.add(cube);
@@ -66,4 +66,64 @@ leftWall.position.set(-5, 2.5, 0); // On le décale à gauche (-5 sur X)
 leftWall.rotation.y = Math.PI / 2; // On le fait pivoter de 90 degrés
 scene.add(leftWall);
 
+// Création d'un petit cube de test
+const geometry = new THREE.BoxGeometry(1, 1, 1);
+const material = new THREE.MeshStandardMaterial({ color: 0x00ff00 }); // Un cube vert
+const cube = new THREE.Mesh(geometry, material);
+scene.add(cube);
 
+// Fonction utilitaire pour créer un cube
+function ajouterUnCube(nom, largeur, hauteur, profondeur, x, z, couleur) {
+    const geom = new THREE.BoxGeometry(largeur, hauteur, profondeur);
+    const mat = new THREE.MeshStandardMaterial({ color: couleur });
+    const mesh = new THREE.Mesh(geom, mat);
+
+    // Positionnement : on calcule Y pour que le bas touche le sol (0)
+    mesh.position.set(x, hauteur / 2, z);
+    mesh.name = nom;
+    
+    // Activation des ombres pour ce cube
+    mesh.castShadow = true;
+    mesh.receiveShadow = true;
+
+    scene.add(mesh);
+    return mesh;
+}
+
+// Syntaxe : ajouterUnCube("Nom", Largeur, Hauteur, Profondeur, X, Z, Couleur)
+
+ajouterUnCube("CubeCentre", 1, 1, 1, 0, 0, 0x00ff00);       // Vert au milieu
+ajouterUnCube("ArmoireTest", 1.5, 2.5, 0.8, -3.5, -4, 0xffff00); // jaune au fond à gauche
+ajouterUnCube("TableChevet", 0.6, 0.6, 0.6, -4, 1, 0x331a00);    // Marron à gauche
+ajouterUnCube("PetitPouf", 0.8, 0.4, 0.8, 2, 2, 0xff0000);      // Rouge devant à droite
+ajouterUnCube("EtagereHaute", 0.5, 3, 0.5, 4, -4, 0x0000ff);    // Bleu au fond à droite
+
+// Fonction pour créer un cube à n'importe quelle hauteur
+function ajouterObjetEspace(nom, taille, x, y, z, couleur) {
+    const geom = new THREE.BoxGeometry(taille, taille, taille);
+    const mat = new THREE.MeshStandardMaterial({ color: couleur });
+    const mesh = new THREE.Mesh(geom, mat);
+
+    // Ici, 'y' détermine la hauteur par rapport au sol (0)
+    mesh.position.set(x, y, z);
+    mesh.name = nom;
+    
+    scene.add(mesh);
+    return mesh;
+}
+
+// Syntaxe : (Nom, Taille, X, Y, Z, Couleur)
+
+// Un cube qui flotte très haut au centre (Lustre ?)
+ajouterObjetEspace("FlotteHaut", 0.5, 0, 4, 0, 0xffff00); 
+
+// Un cube au milieu de la hauteur, près du mur du fond
+ajouterObjetEspace("FlotteMilieu", 0.8, 2, 2.5, -3, 0x00ffff);
+
+// Un petit cube qui lévite juste au-dessus du sol
+ajouterObjetEspace("LevitationBase", 0.3, -2, 1.2, 2, 0xff00ff);
+
+// Une rangée de cubes en diagonale dans le vide
+ajouterObjetEspace("Cube1", 0.4, -3, 1, -1, 0xffffff);
+ajouterObjetEspace("Cube2", 0.4, -3, 2, -2, 0xffffff);
+ajouterObjetEspace("Cube3", 0.4, -3, 3, -3, 0xffffff);
