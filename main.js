@@ -92,11 +92,11 @@ function ajouterUnCube(nom, largeur, hauteur, profondeur, x, z, couleur) {
 
 // Syntaxe : ajouterUnCube("Nom", Largeur, Hauteur, Profondeur, X, Z, Couleur)
 
-ajouterUnCube("CubeCentre", 1, 1, 1, 0, 0, 0x00ff00);       // Vert au milieu
-ajouterUnCube("ArmoireTest", 1.5, 2.5, 0.8, -3.5, -4, 0xffff00); // jaune au fond à gauche
-ajouterUnCube("TableChevet", 0.6, 0.6, 0.6, -4, 1, 0x331a00);    // Marron à gauche
-ajouterUnCube("PetitPouf", 0.8, 0.4, 0.8, 2, 2, 0xff0000);      // Rouge devant à droite
-ajouterUnCube("EtagereHaute", 0.5, 3, 0.5, 4, -4, 0x0000ff);    // Bleu au fond à droite
+ajouterUnCube("Cube1", 1, 1, 1, 0, 0, 0x00ff00);       // Vert au milieu
+ajouterUnCube("Cube2", 1.5, 2.5, 0.8, -3.5, -4, 0xffff00); // jaune au fond à gauche
+ajouterUnCube("Cube3", 0.6, 0.6, 0.6, -4, 1, 0x331a00);    // Marron à gauche
+ajouterUnCube("Cube4", 0.8, 0.4, 0.8, 2, 2, 0xff0000);      // Rouge devant à droite
+ajouterUnCube("Cube5", 0.5, 3, 0.5, 4, -4, 0x0000ff);    // Bleu au fond à droite
 
 // Fonction pour créer un cube à n'importe quelle hauteur
 function ajouterObjetEspace(nom, taille, x, y, z, couleur) {
@@ -115,15 +115,15 @@ function ajouterObjetEspace(nom, taille, x, y, z, couleur) {
 // Syntaxe : (Nom, Taille, X, Y, Z, Couleur)
 
 // Un cube qui flotte très haut au centre (Lustre ?)
-ajouterObjetEspace("FlotteHaut", 0.5, 0, 4, 0, 0xffff00); 
+ajouterObjetEspace("Cube6", 0.5, 0, 4, 0, 0xffff00); 
 
 // Un cube au milieu de la hauteur, près du mur du fond
-ajouterObjetEspace("FlotteMilieu", 0.8, 2, 2.5, -3, 0x00ffff);
+ajouterObjetEspace("Cube7", 0.8, 2, 2.5, -3, 0x00ffff);
 
 // Un petit cube qui lévite juste au-dessus du sol
-ajouterObjetEspace("LevitationBase", 0.3, -2, 1.2, 2, 0xff00ff);
+ajouterObjetEspace("Cube8", 0.3, -2, 1.2, 2, 0xff00ff);
 
 // Une rangée de cubes en diagonale dans le vide
-ajouterObjetEspace("Cube1", 0.4, -3, 1, -1, 0xffffff);
-ajouterObjetEspace("Cube2", 0.4, -3, 2, -2, 0xffffff);
-ajouterObjetEspace("Cube3", 0.4, -3, 3, -3, 0xffffff);
+ajouterObjetEspace("Cube9", 0.4, -3, 1, -1, 0xffffff);
+ajouterObjetEspace("Cube10", 0.4, -3, 2, -2, 0xffffff);
+ajouterObjetEspace("Cube11", 0.4, -3, 3, -3, 0xffffff);
