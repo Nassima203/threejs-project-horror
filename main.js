@@ -9,7 +9,17 @@ scene.background = new THREE.Color(0x050505); // Un fond très sombre pour l'amb
 
 // 2. La Caméra (Vision 3D)
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera.position.set(5, 5, 8); // On recule la caméra pour voir la chambre
+//camera.position.set(5, 5, 8); // On recule la caméra pour voir la chambre
+// Position de départ : 
+// X = 0 (milieu de la pièce)
+// Y = 1.6 (hauteur moyenne des yeux d'un humain)
+// Z = 4 (proche du bord de la pièce pour voir l'intérieur)
+camera.position.set(2, 1.6, 4);
+
+// On cible précisément le cube vert
+const cibleVert = new THREE.Vector3(0, 0.5, 0);
+camera.lookAt(cibleVert);
+
 
 // 3. Le Rendu (Renderer)
 const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -127,3 +137,4 @@ ajouterObjetEspace("Cube8", 0.3, -2, 1.2, 2, 0xff00ff);
 ajouterObjetEspace("Cube9", 0.4, -3, 1, -1, 0xffffff);
 ajouterObjetEspace("Cube10", 0.4, -3, 2, -2, 0xffffff);
 ajouterObjetEspace("Cube11", 0.4, -3, 3, -3, 0xffffff);
+
