@@ -1,7 +1,18 @@
 import * as THREE from 'three';
 // On ajoute l'import des contrôles
 import { OrbitControls } from 'https://unpkg.com/three@0.160.0/examples/jsm/controls/OrbitControls.js';
+export default function importModel(){
 
+    const gltfLoader = new gltfLoader();
+    const skate = new THREE.group();
+    screen.add(skate);
+    
+    gltfLoader.load("models/skate.glb"), (gtlf) => {
+        const model = gltf.scene;
+        console.log(model);
+        skate.add(model);
+    }
+};
 
 // 1. La Scène (le monde)
 const scene = new THREE.Scene();
